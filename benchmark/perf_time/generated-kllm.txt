@@ -1,0 +1,10 @@
+timestamp=2026-04-27T10:59:19.392438Z duration_ms=1244 success=true
+timestamp=2026-04-27T10:59:23.896794Z duration_ms=1330 success=true
+timestamp=2026-04-27T10:59:28.925409Z duration_ms=1253 success=true
+timestamp=2026-04-27T10:59:34.071570Z duration_ms=1264 success=true
+timestamp=2026-04-27T10:59:40.357575Z duration_ms=1260 success=true
+timestamp=2026-04-27T10:59:43.236445Z duration_ms=1251 success=true
+timestamp=2026-04-27T10:59:47.996958Z duration_ms=1260 success=true
+timestamp=2026-04-27T10:59:53.232479Z duration_ms=1232 success=true
+timestamp=2026-04-27T10:59:56.636486Z duration_ms=1257 success=true
+timestamp=2026-04-27T11:00:01.669362Z duration_ms=1381 success=true

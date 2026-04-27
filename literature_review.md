@@ -1,0 +1,47 @@
+# Literature Review
+
+## Introduction
+
+Large language models have increasingly been integrated into software development workflows, from code generation to debugging and testing. A particularly promising but underexplored direction is the use of LLMs at runtime—where the model can inspect the actual state of a running application and make context-aware decisions. This literature review examines existing approaches to runtime LLM integration, with a focus on two key use cases: test mocking and data parsing. These use cases were chosen because they represent common scenarios where applications interact with the outside world, and where runtime context can significantly improve the quality of LLM-generated outputs.
+
+## Runtime LLM Integration in Software Systems
+
+The idea of calling an LLM during application execution is relatively new. The most relevant prior work is Healer by Sun et al. [1], which demonstrates runtime LLM integration for self-healing Python applications. When Healer encounters a runtime error, it suspends execution, collects context about the error (including stack traces and variable values), sends this information to an LLM, and attempts to apply the suggested fix. This approach is compelling because the LLM receives concrete runtime information rather than just static code, which allows it to make more informed decisions.
+
+However, Healer is Python-specific and narrowly focused on error recovery. The broader question remains: how can we bring similar runtime introspection capabilities to other ecosystems, and what other use cases can benefit from this pattern? For the JVM ecosystem, this means leveraging the Java Debug Interface (JDI) to suspend execution, inspect objects, and control program flow—capabilities that exist but have not been systematically applied to LLM-integrated tooling.
+
+## Semantic Mocking: Moving Beyond Syntactic Test Doubles
+
+Traditional mocking frameworks like Mockito and MockK require developers to manually script mock behavior. This approach is syntactic in nature: the developer must explicitly specify return values for each method call, often resulting in verbose test setup code. Google's "Don't Overuse Mocking" post by Trenk [2] highlights three key problems with this approach: (1) tests become harder to understand due to complex setup logic, (2) tests become harder to maintain as mocks must be updated whenever interfaces change, and (3) tests provide less assurance because mocked behavior may diverge from actual implementation behavior.
+
+Recent work by Jayanaka et al. [3] suggests a different approach. Their MTP system introduces "meaning-typed" abstractions where LLMs are given not just interface signatures, but also the actual runtime values of parameters passed to methods. They demonstrate that this combination—interface structure plus concrete input values—gives the LLM enough context to produce accurate responses. The accuracy of their approach was evaluated using three methods: LLM-as-a-judge, human evaluation, and comparison against ground truth implementations. Their results show that providing actual runtime objects significantly improves LLM accuracy compared to signature-only approaches.
+
+This insight suggests that semantic mocking—where mock behavior is inferred from interface definitions and actual test inputs—could address Trenk's three critiques. Tests would be easier to understand because setup logic moves into a generated class rather than cluttering the test itself. Maintenance would be simplified because the LLM regenerates mock logic on demand. And test assurance would improve because the LLM sees the actual objects being passed, making its behavior more likely to align with real implementations.
+
+However, there is currently no JVM-based mocking framework that applies this context-aware, semantic approach. Existing Kotlin and Java mocking libraries remain firmly in the syntactic camp, requiring manual configuration of mock behavior.
+
+## Structured Output and Semantic Parsing
+
+A related but distinct challenge is parsing data with unknown or unstructured formats into typed objects. This is a common problem when working with external APIs, legacy systems, or LLM outputs themselves. The traditional approach requires writing custom parsers with explicit validation logic—a tedious and error-prone process.
+
+Tools like Pydantic AI [4] have emerged in the Python ecosystem to address this problem. Pydantic AI allows developers to define data models and automatically validates/parses LLM outputs to match those models. In the Kotlin ecosystem, the Koog library [5] provides similar functionality through structured output support. However, Koog requires developers to annotate their data classes with metadata and provide example objects to guide the LLM. This manual annotation overhead makes the tool less practical, especially when working with existing codebases where modifying data classes is not always feasible.
+
+The gap here is a straightforward, zero-annotation parsing tool for Kotlin that can leverage the language's strong type system. If we can introspect a data class at runtime and extract its structure (field names, types, nullability constraints), we should be able to provide that context to an LLM and ask it to parse arbitrary input into that structure—without requiring developers to add annotations or provide examples.
+
+This approach would be analogous to how serialization libraries like kotlinx.serialization work: they use reflection and compiler plugins to understand data class structure automatically. The difference is that instead of following a strict format like JSON, the LLM can handle inputs with flexible or unknown schemas.
+
+## Research Gap
+
+Taken together, the literature suggests that the strongest current approaches are those that combine runtime introspection with LLM reasoning. Systems like Healer [1] demonstrate that suspending execution and providing concrete runtime context leads to better LLM outputs. Work like MTP [3] shows that giving LLMs actual parameter values—not just type signatures—significantly improves accuracy. Within this broader trend, the key gap is not the absence of runtime LLM integration in general, but the absence of a comprehensive JVM/Kotlin solution that brings together runtime introspection via JDI, zero-annotation semantic understanding, and unified support for both mocking and parsing within a developer-friendly framework. This thesis addresses that gap through KotlinLLM, which provides two primary use cases: `mockLlm<T>()` for generating semantic mocks based on interface definitions and actual test inputs, and `asLlm<F, T>()` for parsing arbitrary data into typed Kotlin objects without requiring annotations.
+
+## References
+
+[1] Z. Sun et al., "LLM as Runtime Error Handler: A Promising Pathway to Adaptive Self-Healing of Software Systems," *arXiv preprint arXiv:2408.01055*, Aug. 2024.
+
+[2] J. Trenk, "Testing on the Toilet: Don't Overuse Mocks," *Google Testing Blog*, May 2013. [Online]. Available: https://testing.googleblog.com/2013/05/testing-on-toilet-dont-overuse-mocks.html
+
+[3] L. J. Dantanarayana, Y. Kang, K. Sivasothynathan, C. Clarke, B. Li, S. Kashmira, K. Flautner, L. Tang, and J. Mars, "MTP: A Meaning-Typed Language Abstraction for AI-Integrated Programming," *Proc. ACM Program. Lang.*, vol. 9, no. OOPSLA2, article 314, Oct. 2025. [Online]. Available: https://doi.org/10.1145/3763092
+
+[4] "Pydantic AI Documentation," *Pydantic*, 2024. [Online]. Available: https://ai.pydantic.dev/
+
+[5] "Structured Output - Koog Documentation," *Koog*, 2024. [Online]. Available: https://docs.koog.ai/structured-output/

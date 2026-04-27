@@ -1,0 +1,82 @@
+REPOSITORY CALL: VetRepository.findAll()
+REPOSITORY RETURN: VetRepository.findAll -> [6 items]
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@4dbfadbf)
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@188ecb9f)
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@e731441)
+REPOSITORY CALL: OwnerRepository.findByLastName("sandler")
+REPOSITORY RETURN: OwnerRepository.findByLastName -> [0 items]
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@407029d9)
+REPOSITORY CALL: OwnerRepository.findByLastName("johnson")
+REPOSITORY RETURN: OwnerRepository.findByLastName -> [0 items]
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@13b0ebda)
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@1e50b0ef)
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@12401cea)
+REPOSITORY CALL: OwnerRepository.save(org.springframework.samples.petclinic.owner.Owner@2b8ab6ff)
+REPOSITORY RETURN: OwnerRepository.save -> null
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletReques
+DataBinder@4a3bea6a)
+REPOSITORY CALL: OwnerRepository.findById(11)
+REPOSITORY RETURN: OwnerRepository.findById -> org.springframework.samples.petclinic.owner.Owner@f5e7b91
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@22a7cb84)
+REPOSITORY CALL: PetRepository.findPetTypes()
+REPOSITORY RETURN: PetRepository.findPetTypes -> [6 items]
+REPOSITORY CALL: OwnerRepository.findById(11)
+REPOSITORY RETURN: OwnerRepository.findById -> org.springframework.samples.petclinic.owner.Owner@2da2f8d4
+REPOSITORY CALL: PetRepository.findPetTypes()
+REPOSITORY RETURN: PetRepository.findPetTypes -> [6 items]
+REPOSITORY CALL: PetRepository.findPetTypes()
+REPOSITORY RETURN: PetRepository.findPetTypes -> [6 items]
+REPOSITORY CALL: PetRepository.findPetTypes()
+REPOSITORY RETURN: PetRepository.findPetTypes -> [6 items]
+REPOSITORY CALL: PetRepository.findPetTypes()
+REPOSITORY RETURN: PetRepository.findPetTypes -> [6 items]
+REPOSITORY CALL: PetRepository.findPetTypes()
+REPOSITORY RETURN: PetRepository.findPetTypes -> [6 items]
+REPOSITORY CALL: PetRepository.findPetTypes()
+REPOSITORY RETURN: PetRepository.findPetTypes -> [6 items]
+REPOSITORY CALL: PetRepository.findPetTypes()
+REPOSITORY RETURN: PetRepository.findPetTypes -> [6 items]
+REPOSITORY CALL: OwnerRepository.findById(11)
+REPOSITORY RETURN: OwnerRepository.findById -> org.springframework.samples.petclinic.owner.Owner@7722a8ca
+REPOSITORY CALL: PetRepository.findPetTypes()
+REPOSITORY RETURN: PetRepository.findPetTypes -> [6 items]
+REPOSITORY CALL: PetRepository.save(Шарик)
+REPOSITORY RETURN: PetRepository.save -> null
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@2b9743ca)
+REPOSITORY CALL: OwnerRepository.findById(11)
+REPOSITORY RETURN: OwnerRepository.findById -> org.springframework.samples.petclinic.owner.Owner@4e097e9
+REPOSITORY CALL: VisitRepository.findByPetId(14)
+REPOSITORY RETURN: VisitRepository.findByPetId -> [0 items]
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@20f06f28)
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@784f9e0)
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@451356b0)
+REPOSITORY CALL: OwnerRepository.findByLastName("Jerry")
+REPOSITORY RETURN: OwnerRepository.findByLastName -> [0 items]
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@49e02b5d)
+REPOSITORY CALL: OwnerRepository.findByLastName("Jackson")
+REPOSITORY RETURN: OwnerRepository.findByLastName -> [1 items]
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@1ef1baf0)
+REPOSITORY CALL: OwnerRepository.findById(11)
+REPOSITORY RETURN: OwnerRepository.findById -> org.springframework.samples.petclinic.owner.Owner@52cc70f4
+REPOSITORY CALL: VisitRepository.findByPetId(14)
+REPOSITORY RETURN: VisitRepository.findByPetId -> [0 items]
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@28cf372e)
+SETTER CALL: VisitController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@6b76f6aa)
+REPOSITORY CALL: PetRepository.findById(14)
+REPOSITORY RETURN: PetRepository.findById -> Шарик
+SETTER CALL: VisitController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@356a406)
+SETTER CALL: VisitController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@652afcd1)
+SETTER CALL: VisitController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@4317f941)
+SETTER CALL: VisitController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@6f5482a4)
+REPOSITORY CALL: PetRepository.findById(14)
+REPOSITORY RETURN: PetRepository.findById -> Шарик
+SETTER CALL: VisitController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@7dc8a64a)
+REPOSITORY CALL: VisitRepository.save(org.springframework.samples.petclinic.visit.Visit@33fffcb8)
+REPOSITORY RETURN: VisitRepository.save -> null
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@2d3af69e)
+REPOSITORY CALL: OwnerRepository.findById(11)
+REPOSITORY RETURN: OwnerRepository.findById -> org.springframework.samples.petclinic.owner.Owner@509af710
+REPOSITORY CALL: VisitRepository.findByPetId(14)
+REPOSITORY RETURN: VisitRepository.findByPetId -> [1 items]
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@48a49c05)
+SETTER CALL: OwnerController.setAllowedFields(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@6789502d)
