@@ -206,7 +206,7 @@ def main() -> None:
     parser.add_argument(
         "--trim",
         type=int,
-        default=3,
+        default=1,
         help="Number of best and worst runtimes to discard per condition",
     )
     args = parser.parse_args()
